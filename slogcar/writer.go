@@ -4,7 +4,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/lingdor/logcar/entity"
+	"github.com/lingdor/logcar/go-logcar/entity"
 )
 
 type carWriter struct {

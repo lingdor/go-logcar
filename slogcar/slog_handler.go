@@ -5,7 +5,7 @@ import (
 	"io"
 	"log/slog"
 
-	"github.com/lingdor/logcar/entity"
+	"github.com/lingdor/go-logcar/entity"
 )
 
 type slogHandler struct {
