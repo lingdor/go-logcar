@@ -18,6 +18,7 @@ func (s *slogHandler) Enabled(ctx context.Context, l slog.Level) bool {
 }
 
 func (s *slogHandler) Handle(ctx context.Context, r slog.Record) error {
+
 	carLevel := entity.LogLeveLInfo
 	switch r.Level {
 	case slog.LevelDebug:
@@ -46,7 +47,7 @@ func (s *slogHandler) WithGroup(name string) slog.Handler {
 func NewJsonHandler(w io.Writer, opts *slog.HandlerOptions) slog.Handler {
 	return &slogHandler{
 		baseHandler: slog.NewJSONHandler(w, opts),
-		w:           &carWriter{w: w},
+		w:           w,
 	}
 }
 func NewFromBaseHandler(handler slog.Handler, w io.Writer) slog.Handler {
@@ -57,9 +58,15 @@ func NewFromBaseHandler(handler slog.Handler, w io.Writer) slog.Handler {
 }
 
 func NewTextHandler(w io.Writer, opts *slog.HandlerOptions) slog.Handler {
-
 	return &slogHandler{
 		baseHandler: slog.NewTextHandler(w, opts),
-		w:           &carWriter{w: w},
+		w:           w,
 	}
 }
+
+// func NewDirectHandler(w io.Writer, opts *slog.HandlerOptions) slog.Handler {
+// 	return &slogHandler{
+// 		baseHandler: slog.NewTextHandler(w, opts),
+// 		w:           &carWriter{w: w},
+// 	}
+// }
