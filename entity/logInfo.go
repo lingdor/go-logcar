@@ -1,12 +1,12 @@
 package entity
 
-const LogLeveLOff = '#'
-const LogLeveLTrace = '$'
-const LogLeveLDebug = '%'
-const LogLeveLInfo = '&'
-const LogLeveLWarn = '\''
-const LogLeveLError = '('
-const LogLeveLFatal = ')'
+const LogLevelOff = '#'
+const LogLevelTrace = '$'
+const LogLevelDebug = '%'
+const LogLevelInfo = '&'
+const LogLevelWarn = '\''
+const LogLevelError = '('
+const LogLevelFatal = ')'
 const LogLevelAll = '*'
 const WrapChar = '+'
 

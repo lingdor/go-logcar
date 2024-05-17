@@ -19,14 +19,14 @@ func (s *slogHandler) Enabled(ctx context.Context, l slog.Level) bool {
 
 func (s *slogHandler) Handle(ctx context.Context, r slog.Record) error {
 
-	carLevel := entity.LogLeveLInfo
+	carLevel := entity.LogLevelInfo
 	switch r.Level {
 	case slog.LevelDebug:
-		carLevel = entity.LogLeveLDebug
+		carLevel = entity.LogLevelDebug
 	case slog.LevelError:
-		carLevel = entity.LogLeveLError
+		carLevel = entity.LogLevelError
 	case slog.LevelWarn:
-		carLevel = entity.LogLeveLWarn
+		carLevel = entity.LogLevelWarn
 	}
 	s.w.Write([]byte{byte(carLevel)})
 	return s.baseHandler.Handle(ctx, r)
